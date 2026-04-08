@@ -1,5 +1,5 @@
 /* global api */
-class encn_Cambridge_tc_new {
+class encn_Cambridge_zht {
     constructor(options) {
         this.options = options;
         this.maxexample = 2;
@@ -27,7 +27,7 @@ class encn_Cambridge_tc_new {
 
         const base = 'https://dictionary.cambridge.org/zht/%E8%A9%9E%E5%85%B8/%E8%8B%B1%E8%AA%9E-%E6%BC%A2%E8%AA%9E-%E7%B9%81%E9%AB%94/';
         const url = base + encodeURIComponent(word);
-        const T = encn_Cambridge_tc_new.T;
+        const T = encn_Cambridge_zht.T;
 
         let data;
         try {
@@ -51,7 +51,7 @@ class encn_Cambridge_tc_new {
         if (!entries.length) entries = doc.querySelectorAll('.entry-body__el');
 
         const notes = [];
-        const css = encn_Cambridge_tc_new.CSS;
+        const css = encn_Cambridge_zht.CSS;
 
         for (const entry of entries) {
             const expression = T(entry.querySelector('.headword'));
@@ -120,7 +120,7 @@ class encn_Cambridge_tc_new {
     }
 }
 
-encn_Cambridge_tc_new.CSS = `
+encn_Cambridge_zht.CSS = `
     <style>
         span.pos {text-transform:lowercase; font-size:0.85em; margin-right:5px; padding:1px 4px; color:white; background-color:#2196F3; border-radius:3px;}
         span.eng_tran {display:block; color:#333; font-weight:bold; margin-bottom:2px;}
