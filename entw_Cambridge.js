@@ -42,18 +42,21 @@ class entw_Cambridge {
             ]);
             let parser = new DOMParser();
             doc = parser.parseFromString(data, 'text/html');
+            console.log('[Cambridge] fetch OK, data length:', data.length);
         } catch (err) {
             if (err.message === 'timeout') {
-                console.warn('Cambridge: request timed out');
+                console.warn('[Cambridge] request timed out');
             } else {
-                console.error('Cambridge fetch error:', err);
+                console.error('[Cambridge] fetch error:', err);
             }
             return [];
         }
 
         let entries = doc.querySelectorAll('.pr .entry-body__el');
+        console.log('[Cambridge] .pr .entry-body__el count:', entries.length);
         if (!entries || !entries.length) {
             entries = doc.querySelectorAll('.entry-body__el');
+            console.log('[Cambridge] .entry-body__el count:', entries.length);
         }
 
         for (const entry of entries) {
